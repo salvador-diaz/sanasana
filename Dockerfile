@@ -1,6 +1,6 @@
 FROM php:8.2-apache
 
-RUN apt update && apt install -y \
+RUN apt update && apt install -y git zip unzip \
     && docker-php-ext-install pdo pdo_mysql \
     && a2enmod rewrite
 
@@ -13,6 +13,10 @@ WORKDIR /var/www/html
 USER www-data
 COPY ./src /var/www/html
 
+USER root
+RUN chown -R www-data:www-data .
+
+USER www-data
 
 # Iniciar server de desarrollo Laravel en primer plano
 EXPOSE 8000

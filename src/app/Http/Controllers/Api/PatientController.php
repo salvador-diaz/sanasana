@@ -18,7 +18,7 @@ class PatientController extends Controller
                 'email' => 'bail|required|email|string|max:255|unique:users,email',
                 'address' => 'bail|required|string|min:10|max:255',
                 // Phone number regex following E.164 standard
-                'phone' => ['bail', 'required', 'min:8', 'regex:/^\+[1-9]\d{0,14}|$/'],
+                'phone' => ['bail', 'required', 'min:8', 'regex:/^\+[1-9]\d{0,14}$/'],
                 'document-photo' => 'bail|required|mimes:jpg,jpeg,png|max:2048',
             ]);
         } catch (ValidationException $e) {
