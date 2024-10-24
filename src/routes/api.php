@@ -17,3 +17,4 @@ use App\Http\Controllers\Api\PatientController;
 */
 
 Route::post('/patients', [PatientController::class, 'create']);
+Route::get('/patients', [PatientController::class, 'list']);

@@ -6,7 +6,8 @@ services:
     volumes:
       - ./src:/var/www/html # Montar el código en el contenedor, sobreescribe el COPY del Dockerfile
     ports:
-      - "80:80"  # Exponer el puerto 80
+      - "8000:8000"
+    command: "php artisan serve --host 0.0.0.0"
     depends_on:
       - mysql
 
@@ -20,3 +21,5 @@ services:
       MYSQL_PASSWORD: ${MYSQL_PASSWORD}
     volumes:
       - ./mysql_data:/var/lib/mysql
+    ports:
+      - "3306:3306"

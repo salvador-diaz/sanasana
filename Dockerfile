@@ -13,7 +13,7 @@ WORKDIR /var/www/html
 USER www-data
 COPY ./src /var/www/html
 
-EXPOSE 80
 
-# Ejecutar proceso Apache en primer plano
-CMD "apache2-foreground"
+# Iniciar server de desarrollo Laravel en primer plano
+EXPOSE 8000
+CMD "php artisan serve --host 0.0.0.0"
