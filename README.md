@@ -17,7 +17,7 @@ Init containers. You may need to use sudo for docker usage:
 ```
 docker compose build
 docker compose up -d
-docker compose exec php artisan migrate
+docker compose exec app php artisan migrate
 ```
 
 and start listening for queued jobs:
